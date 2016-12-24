@@ -10,6 +10,7 @@
 	<properties>
 		<spring.version>4.0.1.RELEASE</spring.version>
 	</properties>
+	
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>
@@ -35,11 +36,39 @@
 			<artifactId>spring-webmvc</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
- 
-	</dependencies>
- 
- 
+	</dependencies>	
+
+<pluginRepositories>
+	<pluginRepository>
+     <id>sonatype-oss-public</id>
+     <url>https://oss.sonatype.org/content/groups/public</url>
+     <releases>
+         <enabled>true</enabled>
+     </releases>
+     <snapshots>
+         <enabled>true</enabled>
+     </snapshots>
+   </pluginRepository>
+  </pluginRepositories>
+	
+	
 	<build>
+	<plugins>
+	<plugin>
+	 <groupId>com.jelastic</groupId>
+	 <artifactId>jelastic-maven-plugin</artifactId>
+	 <version>1.7</version>
+	 <configuration>
+	    <email>ceo.openfarm@gmail.com</email>
+	    <password>year2017@openfarm</password>
+	    <context>hello</context>
+	    <environment>http://opnfarmng.j.layershift.co.uk/</environment>
+	    <comment>deployment test from git repo</comment> 
+	   <api_hoster>app.j.layershift.co.uk</api_hoster>
+	 </configuration>
+	</plugin>
+
+	</plugins>
 		<finalName>HelloWorld</finalName>
 	</build>
 </project>
